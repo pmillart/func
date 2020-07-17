@@ -90,7 +90,7 @@ def UploadCosmos(guid, jsondata):
     except exceptions.CosmosHttpResponseError:
         raise
 
-    #Upsert
+    #Upsert after adding a guid as key to the document
     jsondata["id"] = guid
     container.upsert_item(jsondata)
     #container.create_item(body=jsondata)
